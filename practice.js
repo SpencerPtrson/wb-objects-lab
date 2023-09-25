@@ -391,7 +391,7 @@ function employeeUpdater() {
 
 
 /// ////////////// PROBLEM 16 ///////////////////
-
+// WORKING
 // Do not edit the code below.
 const cat = {
   name: 'Fluffy',
@@ -418,7 +418,13 @@ const cat = {
 let grumpyActivity;
 let fluffy2ndFriend;
 
+grumpyActivity = cat.catFriends[0].activities[1];
+fluffy2ndFriend = cat.catFriends[1].name;
+
+
+
 /// ////////////// PROBLEM 17 ///////////////////
+// WORKING
 
 // Do not edit the code below.
 const myCar = {
@@ -455,6 +461,21 @@ const myCar = {
 */
 
 //Code Here
+function recordCleaner() {
+  console.log("Accident Count:", myCar.accidents.length)
+  
+  console.log("Cleaning Record");
+  for (let accident in myCar.accidents) {
+    console.log("Accident Date:", myCar.accidents[accident].date)
+    myCar.accidents[accident].atFaultForAccident = false;
+  }
+
+  console.log(myCar);
+  return myCar;
+}
+
+
+
 
 /// ////////////// PROBLEM 18 ///////////////////
 
@@ -473,6 +494,23 @@ const myCar = {
 */
 
 //Code Here
+function largeNumbers(destructuredObj) {
+  console.log(destructuredObj);
+
+  let smallestNum = destructuredObj.first;
+  console.log(destructuredObj.first);
+
+  if (smallestNum > destructuredObj.second) {
+    smallestNum = destructuredObj.second;
+  }
+  if (smallestNum > destructuredObj.third) {
+    smallestNum = destructuredObj.third;
+  }
+  return smallestNum;
+}
+
+
+
 
 /// ////////////// PROBLEM 19 ///////////////////
 
@@ -483,3 +521,17 @@ const myCar = {
 */
 
 //Code Here
+function numberGroups(destructuredObj) {
+  console.log(destructuredObj);
+  console.log("A Length:", destructuredObj.a.length);
+  console.log("B Length:", destructuredObj.b.length);
+  console.log("C Length:", destructuredObj.c.length);
+
+  if (destructuredObj.b.length > destructuredObj.a.length && destructuredObj.b.length > destructuredObj.c.length) {
+    return destructuredObj.b;
+  }
+  if (destructuredObj.c.length > destructuredObj.a.length && destructuredObj.c.length > destructuredObj.b.length) {
+    return destructuredObj.c;
+  }
+  return destructuredObj.a;
+}
