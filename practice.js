@@ -7,22 +7,24 @@
 */
 
 /// ////////////// PROBLEM 1 ///////////////////
-
+// WORKING
 /*
   Create an object called me.
   Give it a key of name with the value being your name, and another key of age with the value being your age.
   Then alert your name using dot notation.
 */
 
+//Code here
 const me = {
   name: "Spencer",
   age: 23
 }
 alert(me.name);
 
-//Code here
+
 
 /// ////////////// PROBLEM 2 ///////////////////
+// WORKING
 
 /*
   Make a 'favoriteThings' object that contains the following keys: band, food, person, book, movie, holiday.
@@ -30,7 +32,6 @@ alert(me.name);
 */
 
 //Code here
-
 const favoriteThings = {
   band: "Queen",
   food: "Pizza",
@@ -46,10 +47,8 @@ const favoriteThings = {
 */
 
 //Code here
-
 favoriteThings.car = "Corvette Stingray";
 favoriteThings["brand"] = "Hershey's";
-
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
@@ -57,13 +56,13 @@ favoriteThings["brand"] = "Hershey's";
 */
 
 //Code here
-
 favoriteThings.food = "Chicken Nuggets";
 favoriteThings.book = "Harry Potter";
 
 
 
-/// ////////////// PROBLEM 3 ///////////////////
+///////////////// PROBLEM 3 ///////////////////
+// WORKING
 
 // Do not edit the code below.
 const user2 = {
@@ -83,8 +82,13 @@ const user2 = {
 */
 
 //Code Here
+user2.name = "Bryan G. Smith";
+user2.email = "bryan.smith@devmounta.in";
 
-/// ////////////// PROBLEM 4 ///////////////////
+
+
+///////////////// PROBLEM 4 ///////////////////
+// WORKING
 
 let shoppingCart = {};
 /*
@@ -94,9 +98,14 @@ let shoppingCart = {};
 */
 
 //Code Here
+function addToCart(item, quantity) {
+  console.log(item, quantity);
+  shoppingCart[item] = quantity;
+} 
 
-/// ////////////// PROBLEM 5 ///////////////////
 
+///////////////// PROBLEM 5 ///////////////////
+// WORKING
 /*
   Write a function called greaterThan10 that takes in an object.
   Write a for...in loop that loops over the object and changes any value that is greater than 10 to 0.
@@ -104,9 +113,23 @@ let shoppingCart = {};
 */
 
 //Code Here
+function greaterThan10(object) {
+  console.log("Object:", object);
+
+  for (let property in object) {
+    if (object[property] > 10) {
+      object[property] = 0;
+    }
+  }
+
+  console.log("Object:", object);
+  return object;
+}
+
+
 
 /// ////////////// PROBLEM 6 ///////////////////
-
+// WORKING
 /*
   Write a function called double that takes in an object.
   Write a for...in loop that loops over the object and changes every value to be itself multiplied by 2.
@@ -114,19 +137,37 @@ let shoppingCart = {};
 */
 
 //Code Here
+function double(object) {
+  for(let property in object) {
+    console.log("Property:", object[property]);
+    object[property] = object[property] * 2;
+  }
+  return object;
+}
+
+
 
 /// ////////////// PROBLEM 7 ///////////////////
-
+// WORKING
 /*
   Inside the function showValues, concatenate each of the values in the given object and return the concatenated string.
 */
 
 function showValues(obj) {
   //Code Here
+  let concatString = '';
+
+  for(let property in obj) {
+    concatString += obj[property];
+  }
+
+  return concatString;
 }
 
-/// ////////////// PROBLEM 8 ///////////////////
 
+
+///////////////// PROBLEM 8 ///////////////////
+// WORKING
 /*
   Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object.
   The object should have 3 keys whose names match the parameters.
@@ -134,18 +175,34 @@ function showValues(obj) {
 */
 
 //Code Here
+function makeCard(cardNumber, expirationDate, securityCode) {
+  const creditCard = {
+    "cardNumber": cardNumber,
+    "expirationDate": expirationDate,
+    "securityCode": securityCode
+  }
+  return creditCard;
+}
+
+
 
 /// ////////////// PROBLEM 9 ///////////////////
-
+// WORKING
 /*
   Write a function called removePassword that takes in an object.
   Delete the property password and return the object.
 */
 
 //Code Here
+function removePassword(obj) {
+  delete obj.password;
+  return obj;
+}
+
+
 
 /// ////////////// PROBLEM 10 ///////////////////
-
+// WORKING
 // Do not edit the code below.
 const deleteTheBigNumbers = {
   first: 10,
@@ -160,6 +217,12 @@ const deleteTheBigNumbers = {
 */
 
 //Code Here
+for (let property in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[property] > 100) {
+    delete deleteTheBigNumbers[property];
+  }
+}
+
 
 /*
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
@@ -170,7 +233,7 @@ const deleteTheBigNumbers = {
 */
 
 /// ////////////// PROBLEM 11 ///////////////////
-
+// WORKING
 // Do not edit the code below.
 const carDetails = {
   color: 'red',
@@ -185,9 +248,18 @@ const carDetails = {
 */
 
 //Code Here
+for (const [detail, value] of Object.entries(carDetails)) {
+  // Changes each loop, not actually permanently assigning a value to anything
+  console.log(detail, value);
+}
+
+// Destructure the object into the variables color, make, model, and year
+const { color, make, model, year } = carDetails;
+
+
 
 /// ////////////// PROBLEM 12 ///////////////////
-
+// WORKING
 /*
   In the function below named greeting, it is receiving an object as a parameter.
   Use object destructuring to save the object properties to new variables.
@@ -196,14 +268,18 @@ const carDetails = {
 
 function greeting(obj) {
   //Code Here
+  const { firstName, lastName, title } = obj;
+
 
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
 
-/// ////////////// PROBLEM 13 ///////////////////
 
+
+/// ////////////// PROBLEM 13 ///////////////////
+// WORKING
 /*
   Write a function called totalPopulation that will take in an object.
   That object will have 4 properties named utah, california, texas and arizona.
@@ -213,9 +289,15 @@ function greeting(obj) {
 */
 
 //Code Here
+function totalPopulation(object) {
+  const { utah, california, texas, arizona } = object;
+  return utah + california + texas + arizona;
+}
+
+
 
 /// ////////////// PROBLEM 14 ///////////////////
-
+// WORKING
 /*
   Write a function called usCanadaBorder that will take in an array containing 2
   numbers (latitude and longitude).
@@ -225,9 +307,19 @@ function greeting(obj) {
 */
 
 //Code Here
+function usCanadaBorder(arr) {
+  console.log(arr);
+  const [ latitude, longitude ] = arr;
+  if (latitude === 49 && -123 <= longitude && longitude <= -95) {
+    return true;
+  }
+  return false;
+}
+
+
 
 /// ////////////// PROBLEM 15 ///////////////////
-
+// WORKING
 // Do not edit the code below.
 const employees = [
   {
@@ -271,6 +363,32 @@ const employees = [
 */
 
 //Code Here
+function employeeUpdater() {
+  console.log(employees);
+
+  // loop over the employee array
+  for (let i = 0; i < employees.length; i++) {
+
+    // fire Theo (poor guy)
+    if (employees[i].firstName === "Theo") {
+      console.log("Firing Theo");
+      // remove employee from array
+      employees.splice(i, 1);
+    }
+
+    // Move Lorie to HR
+    if (employees[i].firstName === "Lorie") {
+      console.log("Moving Lorie to HR");
+      employees[i].department = "HR";
+    }
+    
+  }
+
+  console.log(employees);
+  return employees;
+}
+
+
 
 /// ////////////// PROBLEM 16 ///////////////////
 
